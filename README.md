@@ -1,5 +1,5 @@
 # react-flowbot-ui-kit
 
-inspired by 
+inspired by
 
 https://github.com/FredrikOseberg/react-chatbot-kit
