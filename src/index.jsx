@@ -1,14 +1,14 @@
 // @ts-check
 
-import React from 'react';
 import ReactDOM from 'react-dom';
 
 import './styles/style.scss';
+import createFlowBot from './init';
 
-const root = document.getElementById('root');
+const run = () => {
+  const flowbot = createFlowBot();
+  const root = document.getElementById('root');
+  ReactDOM.render(flowbot, root);
+};
 
-const App = () => (
-  <div>Hello</div>
-);
-
-ReactDOM.render(<App />, root);
+run();
