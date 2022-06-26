@@ -1,0 +1,312 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`conversation with the bot 1`] = `
+<div
+  id="container"
+>
+  <div
+    class="position-absolute overflow-auto shadow p-3 mb-5 bg-body rounded flowbot-message-box container-sm"
+    id="containerElement"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="col-md-8"
+      >
+        Hello! I am here to help you!
+      </div>
+    </div>
+    <div
+      class="row"
+    >
+      <div
+        class="col-md-8"
+      >
+        Please, choise a question you want to ask
+      </div>
+    </div>
+    <div
+      class="row"
+    >
+      <div
+        class="text-end col-md-8 offset-md-4"
+      >
+        Show engine type
+      </div>
+    </div>
+    <div
+      class="d-flex flex-column"
+    >
+      <div
+        class="spinner-border"
+        role="status"
+      >
+        <span
+          class="visually-hidden"
+        >
+          Loading...
+        </span>
+      </div>
+    </div>
+  </div>
+  <button
+    class="position-absolute flowbot-toggler btn btn-primary"
+    type="button"
+  >
+    Active! Click to deactivate
+  </button>
+</div>
+`;
+
+exports[`conversation with the bot 2`] = `
+<div
+  id="container"
+>
+  <div
+    class="position-absolute overflow-auto shadow p-3 mb-5 bg-body rounded flowbot-message-box container-sm"
+    id="containerElement"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="col-md-8"
+      >
+        Hello! I am here to help you!
+      </div>
+    </div>
+    <div
+      class="row"
+    >
+      <div
+        class="col-md-8"
+      >
+        Please, choise a question you want to ask
+      </div>
+    </div>
+    <div
+      class="row"
+    >
+      <div
+        class="text-end col-md-8 offset-md-4"
+      >
+        Show engine type
+      </div>
+    </div>
+    <div
+      class="row"
+    >
+      <div
+        class="col-md-8"
+      >
+        v8 turbo-diesel
+      </div>
+    </div>
+    <div
+      class="d-flex flex-column"
+    >
+      <button
+        class="mb-2 btn btn-primary"
+        type="button"
+      >
+        Show wheels
+      </button>
+      <button
+        class="mb-2 btn btn-primary"
+        type="button"
+      >
+        Show breaks
+      </button>
+      <button
+        class="mb-2 btn btn-primary"
+        type="button"
+      >
+        show constraction
+      </button>
+    </div>
+  </div>
+  <button
+    class="position-absolute flowbot-toggler btn btn-primary"
+    type="button"
+  >
+    Active! Click to deactivate
+  </button>
+</div>
+`;
+
+exports[`conversation with the bot 3`] = `
+<div
+  id="container"
+>
+  <div
+    class="position-absolute overflow-auto shadow p-3 mb-5 bg-body rounded flowbot-message-box container-sm"
+    id="containerElement"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="col-md-8"
+      >
+        Hello! I am here to help you!
+      </div>
+    </div>
+    <div
+      class="row"
+    >
+      <div
+        class="col-md-8"
+      >
+        Please, choise a question you want to ask
+      </div>
+    </div>
+    <div
+      class="row"
+    >
+      <div
+        class="text-end col-md-8 offset-md-4"
+      >
+        Show engine type
+      </div>
+    </div>
+    <div
+      class="row"
+    >
+      <div
+        class="col-md-8"
+      >
+        v8 turbo-diesel
+      </div>
+    </div>
+    <div
+      class="row"
+    >
+      <div
+        class="text-end col-md-8 offset-md-4"
+      >
+        show constraction
+      </div>
+    </div>
+    <div
+      class="row"
+    >
+      <div
+        class="col-md-8"
+      >
+        Here is car parts whitch you can study
+      </div>
+    </div>
+    <div
+      class="d-flex flex-column"
+    >
+      <button
+        class="mb-2 btn btn-primary"
+        type="button"
+      >
+        Show engine type
+      </button>
+      <button
+        class="mb-2 btn btn-primary"
+        type="button"
+      >
+        Show breaks
+      </button>
+      <button
+        class="mb-2 btn btn-primary"
+        type="button"
+      >
+        Show wheels
+      </button>
+    </div>
+  </div>
+  <button
+    class="position-absolute flowbot-toggler btn btn-primary"
+    type="button"
+  >
+    Active! Click to deactivate
+  </button>
+</div>
+`;
+
+exports[`originally should be deactivated 1`] = `
+<div>
+  <button
+    class="position-absolute flowbot-toggler btn btn-primary"
+    type="button"
+  >
+    Click to activate
+  </button>
+</div>
+`;
+
+exports[`toggle bot mode 1`] = `
+<div
+  id="container"
+>
+  <div
+    class="position-absolute overflow-auto shadow p-3 mb-5 bg-body rounded flowbot-message-box container-sm"
+    id="containerElement"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="col-md-8"
+      >
+        Hello! I am here to help you!
+      </div>
+    </div>
+    <div
+      class="row"
+    >
+      <div
+        class="col-md-8"
+      >
+        Please, choise a question you want to ask
+      </div>
+    </div>
+    <div
+      class="d-flex flex-column"
+    >
+      <button
+        class="mb-2 btn btn-primary"
+        type="button"
+      >
+        Show engine type
+      </button>
+      <button
+        class="mb-2 btn btn-primary"
+        type="button"
+      >
+        Show wheels
+      </button>
+      <button
+        class="mb-2 btn btn-primary"
+        type="button"
+      >
+        Show breaks
+      </button>
+    </div>
+  </div>
+  <button
+    class="position-absolute flowbot-toggler btn btn-primary"
+    type="button"
+  >
+    Active! Click to deactivate
+  </button>
+</div>
+`;
+
+exports[`toggle bot mode 2`] = `
+<div
+  id="container"
+>
+  <button
+    class="position-absolute flowbot-toggler btn btn-primary"
+    type="button"
+  >
+    Click to activate
+  </button>
+</div>
+`;
