@@ -11,3 +11,6 @@ start:
 
 lint:
 	npx eslint . --ext js,jsx
+
+test:
+	npm test
