@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 
 import createFlowBot from '../src/init.jsx';
 import config from '../src/examples/config.js';
-import getWidgets from '../src/examples/widgets/index.js';
+import getWidget from '../src/examples/widgets/index.js';
 
 const initialHtml = '<div id="container"></div>';
 
@@ -63,7 +63,7 @@ test('conversation with the bot', async () => {
 
 test('widgets', async () => {
   const user = userEvent.setup();
-  const bot = await createFlowBot(config, { getWidgets });
+  const bot = await createFlowBot(config, { getWidget });
   render(bot, { container: document.getElementById('container') });
   const firstWidgetText = 'Anti-lock braking system (ABS)';
   const firstWidgetLinkText = 'See more information about ABS on Wikipedia';

@@ -7,10 +7,10 @@ import BotBox from './BotBox';
 
 const App = ({ botMachine, options }) => {
   const botService = useInterpret(botMachine);
-  const { getWidgets } = options;
+  const { getWidget } = options;
 
   return (
-    <GlobalStateContext.Provider value={{ botService, getWidgets }}>
+    <GlobalStateContext.Provider value={{ botService, getWidget }}>
       <BotBox />
     </GlobalStateContext.Provider>
   );
@@ -19,7 +19,7 @@ const App = ({ botMachine, options }) => {
 App.propTypes = {
   botMachine: PropTypes.object, // eslint-disable-line
   options: PropTypes.shape({
-    getWidgets: PropTypes.func,
+    getWidget: PropTypes.func,
   }),
 };
 

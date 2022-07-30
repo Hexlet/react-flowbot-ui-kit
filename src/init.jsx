@@ -4,7 +4,7 @@ import createBotMachine from './machine/flowbotMachine';
 import App from './components/App';
 
 const defaultOptions = {
-  getWidgets: () => null,
+  getWidget: () => null,
 };
 
 export default (configuration, userDefinedOptions = {}) => {

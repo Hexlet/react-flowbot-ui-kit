@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 import GlobalStateContext from '../context';
 
 const Widget = ({ name }) => {
-  const { getWidgets } = useContext(GlobalStateContext);
-  const Component = getWidgets(name);
+  const { getWidget } = useContext(GlobalStateContext);
+  const Component = getWidget(name);
 
   return (
     <Row className="mb-2" data-testid="widget">
