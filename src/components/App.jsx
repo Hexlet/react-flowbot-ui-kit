@@ -5,11 +5,12 @@ import PropTypes from 'prop-types';
 import GlobalStateContext from '../context';
 import BotBox from './BotBox';
 
-const App = ({ botMachine }) => {
+const App = ({ botMachine, options }) => {
   const botService = useInterpret(botMachine);
+  const { getWidget } = options;
 
   return (
-    <GlobalStateContext.Provider value={{ botService }}>
+    <GlobalStateContext.Provider value={{ botService, getWidget }}>
       <BotBox />
     </GlobalStateContext.Provider>
   );
@@ -17,6 +18,14 @@ const App = ({ botMachine }) => {
 
 App.propTypes = {
   botMachine: PropTypes.object, // eslint-disable-line
+  options: PropTypes.shape({
+    getWidget: PropTypes.func,
+  }),
+};
+
+App.defaultProps = {
+  botMachine: {},
+  options: {},
 };
 
 export default App;

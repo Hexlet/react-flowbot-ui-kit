@@ -44,6 +44,10 @@ const botConfiguration = {
         'wheels',
         'overallConstruction',
       ],
+      widgets: [
+        'ABS',
+        'ESP',
+      ],
     },
   ],
   questions: [

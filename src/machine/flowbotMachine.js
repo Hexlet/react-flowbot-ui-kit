@@ -3,7 +3,12 @@ import answeringMachine from './answeringMachine';
 import generateId from '../utils/idGenerator';
 
 const getInitMessages = (config) => (
-  config.initMessages.map((message) => ({ type: 'bot', content: message, id: generateId() }))
+  config.initMessages.map((message) => ({
+    type: 'bot',
+    content: message,
+    id: generateId(),
+    widgetData: [],
+  }))
 );
 
 const getInitQuestions = (config) => (
@@ -64,7 +69,12 @@ const createBotMachine = (configuration) => {
             actions: assign({
               messages: (context, event) => [
                 ...context.messages,
-                { type: 'bot', content: event.payload.answerData.content, id: generateId() },
+                {
+                  type: 'bot',
+                  content: event.payload.answerData.content,
+                  id: generateId(),
+                  widgetData: event.payload.widgetData,
+                },
               ],
               currentQuestions: (context, event) => event.payload.nextQuestions,
             }),

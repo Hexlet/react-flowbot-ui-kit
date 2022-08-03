@@ -19,9 +19,12 @@ export default createMachine({
               ));
               return { ...questionData, id: generateId() };
             });
+            const widgetNames = answerData.widgets || [];
+            const widgetData = widgetNames.map((name) => ({ name, id: generateId() }));
             const payload = {
               answerData,
               nextQuestions,
+              widgetData,
             };
 
             return { type: 'REPLY', payload };
