@@ -3,8 +3,8 @@ import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import createFlowBot from '../src/init.jsx';
-import config from '../src/examples/config.js';
-import getWidget from '../src/examples/widgets/index.js';
+import config from '../examples/config.js';
+import getWidget from '../examples/widgets/index.js';
 
 const initialHtml = '<div id="container"></div>';
 

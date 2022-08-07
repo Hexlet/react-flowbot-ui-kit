@@ -29,6 +29,7 @@ const createBotMachine = (configuration) => {
     context: {
       currentQuestions: initQuestions,
       currentQuestionDetails: {},
+      questionsChain: [],
       messages: initMessages,
     },
     states: {
@@ -41,11 +42,30 @@ const createBotMachine = (configuration) => {
           ASK: {
             target: 'answering',
             actions: assign({
+              questionsChain: (context) => [...context.questionsChain, context.currentQuestions],
               messages: (context, event) => [
                 ...context.messages,
                 { type: 'user', content: event.text, id: generateId() },
               ],
               currentQuestionDetails: (context, event) => event.answerName,
+            }),
+          },
+          PREVIOUS: {
+            actions: assign({
+              currentQuestions: (context) => {
+                const prevQuestions = context.questionsChain.pop();
+                return prevQuestions.map((question) => ({
+                  ...question,
+                  id: generateId(),
+                }));
+              },
+            }),
+          },
+          RESET: {
+            actions: assign({
+              questionsChain: () => [],
+              currentQuestionDetails: () => {},
+              currentQuestions: () => initQuestions,
             }),
           },
         },

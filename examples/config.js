@@ -5,8 +5,6 @@ const botConfiguration = {
   ],
   initQuestions: [
     'engine',
-    'wheels',
-    'brakes',
   ],
   answers: [
     {
@@ -14,7 +12,6 @@ const botConfiguration = {
       content: 'v8 turbo-diesel',
       questionNames: [
         'wheels',
-        'brakes',
         'overallConstruction',
       ],
     },
@@ -22,28 +19,18 @@ const botConfiguration = {
       name: 'wheelCharacteristics',
       content: 'R17 4 items',
       questionNames: [
-        'engine',
         'brakes',
-        'overallConstruction',
       ],
     },
     {
       name: 'characteristicChoise',
       content: 'Here is car parts whitch you can study',
-      questionNames: [
-        'engine',
-        'brakes',
-        'wheels',
-      ],
+      questionNames: [],
     },
     {
       name: 'brakesCharacteristics',
       content: 'ABS, ESP',
-      questionNames: [
-        'engine',
-        'wheels',
-        'overallConstruction',
-      ],
+      questionNames: [],
       widgets: [
         'ABS',
         'ESP',
