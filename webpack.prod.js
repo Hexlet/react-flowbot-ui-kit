@@ -1,6 +1,7 @@
 // @ts-check
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const GeneratePackageJsonPlugin = require('generate-package-json-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -25,6 +26,14 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin(),
+    new GeneratePackageJsonPlugin({
+      name: 'react-flowbot-ui-kit',
+      version: '0.1.0',
+      main: './index.js',
+      engines: {
+        node: '>= 14',
+      },
+    }),
   ],
   module: {
     rules: [
