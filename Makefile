@@ -4,7 +4,7 @@ install-deps:
 install: install-deps
 
 build:
-	npx webpack
+	npm run build
 
 start:
 	npx webpack serve
@@ -14,3 +14,5 @@ lint:
 
 test:
 	npm test
+
+.PHONY: build

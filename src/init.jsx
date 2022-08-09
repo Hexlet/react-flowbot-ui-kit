@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles/style.scss';
 
 import createBotMachine from './machine/flowbotMachine';
 import App from './components/App';
