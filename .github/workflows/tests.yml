@@ -1,4 +1,4 @@
-name: tests
+name: Build, Test and Deploy
 
 on:
   push:
@@ -6,16 +6,30 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: write
+
 jobs:
-  build:
-
+  build-test-and-deploy:
+    concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
       - name: Install
         run: make install
+    
       - name: Run linter
         run: make lint
+
       - name: Run test
         run: make test
+
+      - name: Build
+        run: make build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build # The folder the action should deploy.
