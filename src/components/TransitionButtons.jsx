@@ -24,12 +24,19 @@ const TransitionButtons = () => {
       <Button
         variant="secondary"
         className="me-2"
+        data-testid="prevQuestionBtn"
         onClick={backToPreviousQuestion}
         disabled={_.isEmpty(botService.state.context.questionsChain)}
       >
         Previous question
       </Button>
-      <Button variant="danger" onClick={backToInitQuestions}>Return to start</Button>
+      <Button
+        variant="danger"
+        data-testid="resetBtn"
+        onClick={backToInitQuestions}
+      >
+        Return to start
+      </Button>
     </div>
   );
 };

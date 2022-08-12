@@ -33,7 +33,7 @@ const MessagesBox = () => {
   });
 
   return (
-    <Container id="containerElement" fluid="sm" className="position-absolute overflow-auto shadow p-3 mb-5 bg-body rounded flowbot-message-box">
+    <Container data-testid="botContainer" id="containerElement" fluid="sm" className="position-absolute overflow-auto shadow p-3 mb-5 bg-body rounded flowbot-message-box">
       {state.context.messages.map((item) => messageMapping(item))}
       <div className="d-flex flex-column">
         {isBotWaitingQuestion(state)
