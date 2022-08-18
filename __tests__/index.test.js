@@ -126,3 +126,73 @@ test('widgets', async () => {
   expect(screen.getByText(secondWidgetText)).toBeInTheDocument();
   expect(screen.getByRole('link', { name: secondWidgetLinkText })).toBeInTheDocument();
 });
+
+test('previous question button', async () => {
+  const user = userEvent.setup();
+  const bot = await createFlowBot(baseConfig, { getWidget });
+  render(bot, { container: document.getElementById('root') });
+
+  expect(screen.queryByTestId('prevQuestionBtn')).not.toBeInTheDocument();
+
+  const botToggler = screen.getByRole('button');
+  await user.click(botToggler);
+
+  const prevQuestionBtn = screen.getByTestId('prevQuestionBtn');
+  expect(prevQuestionBtn).toBeInTheDocument();
+
+  const firstQuestionText = 'Show engine info';
+  const firstQuestionButton = screen.getByRole('button', { name: firstQuestionText });
+  await user.click(firstQuestionButton);
+
+  const firstAnswerText = 'A car engine is an internal combustion engine.';
+  expect(await screen.findByText(firstAnswerText)).toBeInTheDocument();
+
+  const secondQuestionText = 'Show engine lubrication system';
+  const secondQuestionButton = await screen.getByRole('button', { name: secondQuestionText });
+  await user.click(secondQuestionButton);
+
+  const secondAnswerText = 'The job of the lubrication system is to distribute oil to the moving parts to reduce friction between surfaces which rub against each other';
+  expect(await screen.findByText(secondAnswerText)).toBeInTheDocument();
+
+  const thirdQuestionText = 'Show constraction';
+  expect(screen.getByRole('button', { name: thirdQuestionText })).toBeInTheDocument();
+
+  await user.click(prevQuestionBtn);
+
+  expect(await screen.getByRole('button', { name: secondQuestionText })).toBeInTheDocument();
+});
+
+test('reset button', async () => {
+  const user = userEvent.setup();
+  const bot = await createFlowBot(baseConfig, { getWidget });
+  render(bot, { container: document.getElementById('root') });
+
+  expect(screen.queryByTestId('resetBtn')).not.toBeInTheDocument();
+
+  const botToggler = screen.getByRole('button');
+  await user.click(botToggler);
+
+  const resetBtn = screen.getByTestId('resetBtn');
+  expect(resetBtn).toBeInTheDocument();
+
+  const firstQuestionText = 'Show engine info';
+  const firstQuestionButton = screen.getByRole('button', { name: firstQuestionText });
+  await user.click(firstQuestionButton);
+
+  const firstAnswerText = 'A car engine is an internal combustion engine.';
+  expect(await screen.findByText(firstAnswerText)).toBeInTheDocument();
+
+  const secondQuestionText = 'Show engine lubrication system';
+  const secondQuestionButton = await screen.getByRole('button', { name: secondQuestionText });
+  await user.click(secondQuestionButton);
+
+  const secondAnswerText = 'The job of the lubrication system is to distribute oil to the moving parts to reduce friction between surfaces which rub against each other';
+  expect(await screen.findByText(secondAnswerText)).toBeInTheDocument();
+
+  const thirdQuestionText = 'Show constraction';
+  expect(screen.getByRole('button', { name: thirdQuestionText })).toBeInTheDocument();
+
+  await user.click(resetBtn);
+
+  expect(await screen.getByRole('button', { name: firstQuestionText })).toBeInTheDocument();
+});
