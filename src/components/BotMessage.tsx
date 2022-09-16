@@ -1,10 +1,20 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
-import PropTypes from 'prop-types';
 
+// @ts-ignore
 import Widget from './Widget.jsx';
 
-const BotMessage = ({ messageData: { content, widgetData } }) => (
+interface IBotMessage {
+  messageData: {
+    content: string,
+    widgetData: {
+      id: string,
+      name: string
+    }[]
+  }
+}
+
+const BotMessage = ({ messageData: { content, widgetData } }: IBotMessage) => (
   <>
     <Row>
       <Col md={8}>
@@ -14,16 +24,6 @@ const BotMessage = ({ messageData: { content, widgetData } }) => (
     {widgetData.map(({ name, id }) => <Widget key={id} name={name} />)}
   </>
 );
-
-BotMessage.propTypes = {
-  messageData: PropTypes.shape({
-    content: PropTypes.string,
-    widgetData: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.string,
-      name: PropTypes.string,
-    })),
-  }),
-};
 
 BotMessage.defaultProps = {
   messageData: {
