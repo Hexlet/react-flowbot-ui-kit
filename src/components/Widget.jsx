@@ -1,8 +1,9 @@
-import React, { useContext } from 'react';
+import React, {FC, useContext} from 'react';
 import { Row, Col, Card } from 'react-bootstrap';
-import PropTypes from 'prop-types';
 
-import GlobalStateContext from '../context';
+// @ts-ignore
+import GlobalStateContext from '../context/index.ts';
+import PropTypes from 'prop-types';
 
 const Widget = ({ name }) => {
   const { getWidget } = useContext(GlobalStateContext);
@@ -20,9 +21,7 @@ const Widget = ({ name }) => {
     </Row>
   );
 };
-
 Widget.propTypes = {
-  name: PropTypes.string.isRequired,
-};
-
+  name: PropTypes.string.isRequired
+}
 export default Widget;

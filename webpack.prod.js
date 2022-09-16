@@ -15,7 +15,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'index.js',
+    filename: 'index.ts',
     library: {
       type: 'module',
     },
@@ -29,7 +29,7 @@ module.exports = {
     new GeneratePackageJsonPlugin({
       name: 'react-flowbot-ui-kit',
       version: '0.1.0',
-      main: './index.js',
+      main: './index.ts',
       engines: {
         node: '>= 14',
       },
