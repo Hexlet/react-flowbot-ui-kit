@@ -1,6 +1,6 @@
 import { assign, createMachine, send } from 'xstate';
 import answeringMachine from './answeringMachine';
-import generateId from '../utils/idGenerator';
+import generateId from '../utils/idGenerator.ts';
 
 const getInitMessages = (config) => (
   config.initMessages.map((message) => ({

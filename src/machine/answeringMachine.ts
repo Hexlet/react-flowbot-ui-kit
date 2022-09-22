@@ -1,30 +1,31 @@
-import { createMachine, sendParent } from 'xstate';
-import generateId from '../utils/idGenerator.ts';
+import {createMachine, sendParent} from 'xstate';
+import generateId from '../utils/idGenerator';
+import {IAnswerData, IConfig, IMachineEvent} from "@/src/intefaces/IMachineState";
 
-const getAnswerData = (config, name) => config.answers.find((answer) => answer.name === name);
+const getAnswerData = (config: IConfig, name: string) => config.answers.find((answer) => answer.name === name);
 
 export default createMachine({
+  tsTypes: {} as import("./answeringMachine.typegen").Typegen0,
   id: 'answer-creator',
   initial: 'waitingQuestionDetails',
+  schema: {
+    events: {} as { type: 'PREPARE_ANSWER' }
+  },
   states: {
     waitingQuestionDetails: {
       on: {
         PREPARE_ANSWER: {
-          actions: sendParent((context, event) => {
+          actions: sendParent((context: any | undefined, event: IMachineEvent) => {
             const { questionDetails, configuration } = event;
-            console.log('event', event)
-            console.log('context', context)
-            // console.log('qd', questionDetails)
-            const answerData = getAnswerData(configuration, questionDetails);
-            // console.log('answerdata',answerData)
-            const nextQuestions = answerData.questionNames.map((questionName) => {
+            const answerData: IAnswerData | undefined = getAnswerData(configuration, questionDetails);
+            const nextQuestions = answerData!.questionNames.map((questionName: string) => {
               const questionData = configuration.questions.find(({ name }) => (
-                name === questionName
+                  name === questionName
               ));
               return { ...questionData, id: generateId() };
             });
-            const widgetNames = answerData.widgets || [];
-            const widgetData = widgetNames.map((name) => ({ name, id: generateId() }));
+            const widgetNames = answerData!.widgets || [];
+            const widgetData = widgetNames.map((name: string) => ({ name, id: generateId() }));
             const payload = {
               answerData,
               nextQuestions,
@@ -34,7 +35,9 @@ export default createMachine({
             return { type: 'REPLY', payload };
           }, { delay: 1000 }),
         },
+
       },
     },
   },
 });
+
