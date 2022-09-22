@@ -2,9 +2,9 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import createFlowBot from '../src/init.jsx';
-import baseConfig from '../__fixtures__/baseConfig.js';
-import getWidget from '../__fixtures__/widgets/index.js';
+import createFlowBot from '../src/init.tsx';
+import baseConfig from '../__fixtures__/baseConfig.ts';
+import getWidget from '../__fixtures__/widgets';
 
 const initialHtml = '<div id="root"></div>';
 

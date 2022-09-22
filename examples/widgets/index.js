@@ -1,5 +1,5 @@
-import ABS from './ABS.jsx';
-import ESP from './ESP.jsx';
+import ABS from './ABS.tsx';
+import ESP from './ESP.tsx';
 
 const widgets = {
   ABS,

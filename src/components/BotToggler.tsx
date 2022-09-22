@@ -2,11 +2,12 @@ import React, { useContext } from 'react';
 import { useActor } from '@xstate/react';
 import { Button } from 'react-bootstrap';
 
-import GlobalStateContext from '../context';
+import GlobalStateContext from '../context/index';
 
-const BotToggler = () => {
-  const globalServices = useContext(GlobalStateContext);
-  const [state, send] = useActor(globalServices.botService);
+// globalServices & state types ???
+const BotToggler = (): JSX.Element => {
+  const globalServices: any = useContext(GlobalStateContext);
+  const [state, send]: any = useActor(globalServices.botService);
 
   return (
     <Button className="position-absolute flowbot-toggler" onClick={() => send('TOGGLE')}>

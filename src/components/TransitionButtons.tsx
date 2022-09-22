@@ -1,19 +1,21 @@
-import React, { useContext } from 'react';
+import React, {MouseEventHandler, useContext} from 'react';
 import { useActor } from '@xstate/react';
 import _ from 'lodash';
 import { Button } from 'react-bootstrap';
-import GlobalStateContext from '../context/index.js';
+import GlobalStateContext from '../context/index';
 
-const TransitionButtons = () => {
-  const { botService } = useContext(GlobalStateContext);
+//botService type ?
+const TransitionButtons = (): JSX.Element => {
+  const { botService }: any = useContext(GlobalStateContext);
   const [, send] = useActor(botService);
-  const backToPreviousQuestion = () => {
+
+  const backToPreviousQuestion: MouseEventHandler = () => {
     send({
       type: 'PREVIOUS',
     });
   };
 
-  const backToInitQuestions = () => {
+  const backToInitQuestions: MouseEventHandler = () => {
     send({
       type: 'RESET',
     });

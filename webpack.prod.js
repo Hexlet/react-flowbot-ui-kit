@@ -5,7 +5,7 @@ const GeneratePackageJsonPlugin = require('generate-package-json-webpack-plugin'
 
 module.exports = {
   mode: 'production',
-  entry: ['./src/init.jsx', './src/styles/style.scss'],
+  entry: ['./src/init.tsx', './src/styles/style.scss'],
   target: [
     'web',
     'es2020',

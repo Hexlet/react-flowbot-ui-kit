@@ -2,15 +2,15 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 
 // @ts-ignore
-import Widget from './Widget.jsx';
+import Widget from './Widget';
 
 interface IBotMessage {
   messageData: {
-    content: string,
+    content?: string | undefined,
     widgetData: {
       id: string,
       name: string
-    }[]
+    }[] | []
   }
 }
 

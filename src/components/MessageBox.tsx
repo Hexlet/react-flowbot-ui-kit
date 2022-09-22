@@ -3,14 +3,16 @@ import { useActor } from '@xstate/react';
 import { Container, Spinner } from 'react-bootstrap';
 import { animateScroll } from 'react-scroll';
 
-import GlobalStateContext from '../context';
+import GlobalStateContext from '../context/index';
 import QuestionButton from './QuestionButton';
 import UserMessage from './UserMessage';
 import BotMessage from './BotMessage';
+import {IState, IMessage} from "@/src/intefaces/IStateMessage";
 
-const isBotWaitingQuestion = (botState) => botState.matches('waitingQuestion');
+const isBotWaitingQuestion = (botState: any): boolean => botState.matches('waitingQuestion');
 
-const messageMapping = (message) => {
+const messageMapping = (message: IMessage): JSX.Element | Error => {
+  console.log(message)
   switch (message.type) {
     case 'user':
       return <UserMessage key={message.id} messageData={message} />;
@@ -22,8 +24,9 @@ const messageMapping = (message) => {
 };
 
 const MessagesBox = () => {
-  const globalServices = useContext(GlobalStateContext);
-  const [state] = useActor(globalServices.botService);
+  const globalServices: any = useContext(GlobalStateContext);
+  const [state]: IState | any = useActor(globalServices.botService);
+  console.log('state in MB', state)
 
   useEffect(() => {
     animateScroll.scrollToBottom({
@@ -34,10 +37,10 @@ const MessagesBox = () => {
 
   return (
     <Container data-testid="botContainer" id="containerElement" fluid="sm" className="position-absolute overflow-auto shadow p-3 mb-5 bg-body rounded flowbot-message-box">
-      {state.context.messages.map((item) => messageMapping(item))}
+      {state.context.messages.map((item: IMessage) => messageMapping(item))}
       <div className="d-flex flex-column">
         {isBotWaitingQuestion(state)
-          ? state.context.currentQuestions.map(({ answerName, id, text }) => (
+          ? state.context.currentQuestions.map(({ answerName, id, text }: any) => (
             <QuestionButton key={id} text={text} answerName={answerName} />
           ))
           : (

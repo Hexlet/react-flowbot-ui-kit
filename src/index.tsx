@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import './styles/style.scss';
 import createFlowBot from './init';
 import configurationExample from '../examples/config';
-import getWidget from '../examples/widgets/index.js';
+import getWidget from '../examples/widgets/index';
 
 const run = () => {
   const flowbot = createFlowBot(configurationExample, { getWidget });

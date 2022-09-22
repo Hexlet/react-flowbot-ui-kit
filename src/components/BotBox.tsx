@@ -3,14 +3,14 @@ import { useActor } from '@xstate/react';
 
 import BotToggler from './BotToggler';
 import MessageBox from './MessageBox';
-import GlobalStateContext from '../context';
-import TransitionButtons from './TransitionButtons.jsx';
+import GlobalStateContext from '../context/index';
+import TransitionButtons from './TransitionButtons';
 
-const isBotActive = (botState) => !botState.matches('idle');
+const isBotActive = (botState: any): boolean => !botState.matches('idle');
 
 const BotBox = () => {
-  const globalServices = useContext(GlobalStateContext);
-  const [state] = useActor(globalServices.botService);
+  const globalServices: any = useContext(GlobalStateContext);
+  const [state]: any = useActor(globalServices.botService);
 
   return (
     <>

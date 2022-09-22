@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDirs": ["./examples", "./src", "./__fixtures__"],
     "target": "ES6",
     "jsx": "react",
     "paths": {
