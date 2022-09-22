@@ -12,7 +12,6 @@ import {IState, IMessage} from "@/src/intefaces/IStateMessage";
 const isBotWaitingQuestion = (botState: any): boolean => botState.matches('waitingQuestion');
 
 const messageMapping = (message: IMessage): JSX.Element | Error => {
-  console.log(message)
   switch (message.type) {
     case 'user':
       return <UserMessage key={message.id} messageData={message} />;
@@ -23,10 +22,9 @@ const messageMapping = (message: IMessage): JSX.Element | Error => {
   }
 };
 
-const MessagesBox = () => {
+const MessagesBox = (): JSX.Element => {
   const globalServices: any = useContext(GlobalStateContext);
   const [state]: IState | any = useActor(globalServices.botService);
-  console.log('state in MB', state)
 
   useEffect(() => {
     animateScroll.scrollToBottom({

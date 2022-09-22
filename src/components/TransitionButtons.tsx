@@ -4,7 +4,6 @@ import _ from 'lodash';
 import { Button } from 'react-bootstrap';
 import GlobalStateContext from '../context/index';
 
-//botService type ?
 const TransitionButtons = (): JSX.Element => {
   const { botService }: any = useContext(GlobalStateContext);
   const [, send] = useActor(botService);

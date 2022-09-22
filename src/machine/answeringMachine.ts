@@ -13,7 +13,7 @@ export default createMachine({
   },
   states: {
     waitingQuestionDetails: {
-      on: {
+      on: <any>{
         PREPARE_ANSWER: {
           actions: sendParent((context: any | undefined, event: IMachineEvent) => {
             const { questionDetails, configuration } = event;

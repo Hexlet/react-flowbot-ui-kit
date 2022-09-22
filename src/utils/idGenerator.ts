@@ -1,3 +1,3 @@
 import _ from 'lodash';
 
-export default () => _.uniqueId();
+export default (): string => _.uniqueId();

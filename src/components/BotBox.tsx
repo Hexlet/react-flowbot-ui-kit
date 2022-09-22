@@ -5,12 +5,13 @@ import BotToggler from './BotToggler';
 import MessageBox from './MessageBox';
 import GlobalStateContext from '../context/index';
 import TransitionButtons from './TransitionButtons';
+import {IState} from "@/src/intefaces/IStateMessage";
 
 const isBotActive = (botState: any): boolean => !botState.matches('idle');
 
-const BotBox = () => {
+const BotBox = (): JSX.Element => {
   const globalServices: any = useContext(GlobalStateContext);
-  const [state]: any = useActor(globalServices.botService);
+  const [state]: IState | any = useActor(globalServices.botService);
 
   return (
     <>

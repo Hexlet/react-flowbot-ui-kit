@@ -1,7 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 
-// @ts-ignore
 import Widget from './Widget';
 
 interface IBotMessage {
@@ -14,7 +13,7 @@ interface IBotMessage {
   }
 }
 
-const BotMessage = ({ messageData: { content, widgetData } }: IBotMessage) => (
+const BotMessage = ({ messageData: { content, widgetData } }: IBotMessage): JSX.Element => (
   <>
     <Row>
       <Col md={8}>

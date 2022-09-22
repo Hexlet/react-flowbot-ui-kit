@@ -9,7 +9,6 @@ interface IQuestionButton {
   answerName: string
 }
 
-// botService type ?
 const QuestionButton = ({ text, answerName }: IQuestionButton): JSX.Element => {
   const globalServices: any = useContext(GlobalStateContext);
   const [, send] = useActor(globalServices.botService);

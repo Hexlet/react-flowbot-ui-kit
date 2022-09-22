@@ -1,6 +1,5 @@
 import React from 'react';
 import { useInterpret } from '@xstate/react';
-import PropTypes from 'prop-types';
 
 import GlobalStateContext from '../context/index';
 import BotBox from './BotBox';
@@ -12,7 +11,7 @@ interface IApp {
   }
 }
 
-const App = ({ botMachine, options }: IApp) => {
+const App = ({ botMachine, options }: IApp): JSX.Element => {
   const botService = useInterpret(botMachine);
   const { getWidget } = options;
 

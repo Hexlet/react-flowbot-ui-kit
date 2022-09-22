@@ -7,7 +7,6 @@ interface IWidget {
   name: string
 }
 
-// getWidget type unknown
 const Widget = ({ name }: IWidget): JSX.Element => {
   const { getWidget }: any = useContext(GlobalStateContext);
   const Component = getWidget(name);
