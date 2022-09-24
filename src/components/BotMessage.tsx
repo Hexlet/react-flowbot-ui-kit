@@ -2,16 +2,7 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 
 import Widget from './Widget';
-
-interface IBotMessage {
-  messageData: {
-    content?: string | undefined,
-    widgetData: {
-      id: string,
-      name: string
-    }[] | []
-  }
-}
+import {IBotMessage} from "../intefaces/IMessages";
 
 const BotMessage = ({ messageData: { content, widgetData } }: IBotMessage): JSX.Element => (
   <>

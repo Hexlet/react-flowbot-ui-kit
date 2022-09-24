@@ -5,7 +5,7 @@ import BotToggler from './BotToggler';
 import MessageBox from './MessageBox';
 import GlobalStateContext from '../context/index';
 import TransitionButtons from './TransitionButtons';
-import {IState} from "@/src/intefaces/IStateMessage";
+import {IState} from "../intefaces/IMessages";
 
 const isBotActive = (botState: any): boolean => !botState.matches('idle');
 

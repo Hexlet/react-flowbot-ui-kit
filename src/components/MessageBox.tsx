@@ -7,7 +7,7 @@ import GlobalStateContext from '../context/index';
 import QuestionButton from './QuestionButton';
 import UserMessage from './UserMessage';
 import BotMessage from './BotMessage';
-import {IState, IMessage} from "@/src/intefaces/IStateMessage";
+import {IState, IMessage} from "@/src/intefaces/IMessages";
 
 const isBotWaitingQuestion = (botState: any): boolean => botState.matches('waitingQuestion');
 

@@ -3,7 +3,7 @@ import { useActor } from '@xstate/react';
 import { Button } from 'react-bootstrap';
 
 import GlobalStateContext from '../context/index';
-import {IState} from "@/src/intefaces/IStateMessage";
+import {IState} from "../intefaces/IMessages";
 
 const BotToggler = (): JSX.Element => {
   const globalServices: any = useContext(GlobalStateContext);
