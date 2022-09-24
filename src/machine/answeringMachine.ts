@@ -1,6 +1,6 @@
 import {createMachine, sendParent} from 'xstate';
 import generateId from '../utils/idGenerator';
-import {IAnswerData, IConfig, IMachineEvent} from "@/src/intefaces/IMachineState";
+import {IAnswerData, IConfig, IMachineEvent} from "../intefaces/IConfig";
 
 const getAnswerData = (config: IConfig, name: string) => config.answers.find((answer) => answer.name === name);
 

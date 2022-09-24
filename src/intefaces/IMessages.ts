@@ -1,3 +1,5 @@
+import {IMachineContext} from "@/src/intefaces/IConfig";
+
 export interface IMessage {
     type: string
     id: string
@@ -7,23 +9,16 @@ export interface IMessage {
         name: string
     }[] | []
 }
-
-export interface IState {
-    context: {
-        currentQuestionDetails?: string | {}
-        currentQuestions: {
+export interface IBotMessage {
+    messageData: {
+        content?: string | undefined,
+        widgetData: {
+            id: string,
             name: string
-            text: string
-            answerName: string
-            id: string
         }[] | []
-        messages: IMessage[] | undefined
-        questionsChain: [
-            name: string,
-            text: string,
-            answerName: string | undefined,
-            id: string
-        ][]
     }
+}
+export interface IState {
+    context: IMachineContext
 }
 
