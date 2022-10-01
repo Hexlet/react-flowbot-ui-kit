@@ -1,9 +1,8 @@
 import React from 'react';
 
-// @ts-ignore
-import createBotMachine from './machine/flowbotMachine';
-import App from './components/App';
-import {IConfig} from "./intefaces/IConfig";
+import createBotMachine from '../machine/flowbotMachine';
+import App from './App';
+import { IConfig } from '../intefaces/IConfig';
 
 const defaultOptions = {
   getWidget: () => null,
