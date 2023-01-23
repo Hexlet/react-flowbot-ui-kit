@@ -14,7 +14,7 @@ module.exports = {
     extensions: ['.js', '.ts', '.tsx'],
   },
   output: {
-    path: path.resolve(__dirname, 'docs'),
+    path: path.resolve(__dirname, 'build'),
     filename: 'index.ts',
     library: {
       type: 'module',
