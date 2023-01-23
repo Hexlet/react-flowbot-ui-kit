@@ -1,8 +1,9 @@
 import { assign, createMachine, send } from 'xstate';
 import answeringMachine from './answeringMachine';
 import generateId from '../utils/idGenerator';
+import { IConfig } from "@/src/intefaces/IConfig";
 
-const getInitMessages = (config) => (
+const getInitMessages = (config: IConfig) => (
   config.initMessages.map((message) => ({
     type: 'bot',
     content: message,
@@ -11,7 +12,7 @@ const getInitMessages = (config) => (
   }))
 );
 
-const getInitQuestions = (config) => (
+const getInitQuestions = (config: IConfig) => (
   config.initQuestions
     .map((questionName) => {
       const questionData = config.questions.find((question) => question.name === questionName);
@@ -19,7 +20,7 @@ const getInitQuestions = (config) => (
     })
 );
 
-const createBotMachine = (configuration) => {
+const createBotMachine = (configuration: IConfig) => {
   const initMessages = getInitMessages(configuration);
   const initQuestions = getInitQuestions(configuration);
 
@@ -37,24 +38,24 @@ const createBotMachine = (configuration) => {
         on: { TOGGLE: 'waitingQuestion' },
       },
       waitingQuestion: {
-        on: {
+        on: <any>{
           TOGGLE: 'idle',
           ASK: {
             target: 'answering',
             actions: assign({
-              questionsChain: (context) => [...context.questionsChain, context.currentQuestions],
-              messages: (context, event) => [
+              questionsChain: (context: any | undefined) => [...context.questionsChain, context.currentQuestions],
+              messages: (context: any | undefined, event: any) => [
                 ...context.messages,
                 { type: 'user', content: event.text, id: generateId() },
               ],
-              currentQuestionDetails: (context, event) => event.answerName,
+              currentQuestionDetails: (context, event: any) => event.answerName,
             }),
           },
           PREVIOUS: {
             actions: assign({
-              currentQuestions: (context) => {
+              currentQuestions: (context: any | undefined) => {
                 const prevQuestions = context.questionsChain.pop();
-                return prevQuestions.map((question) => ({
+                return prevQuestions.map((question: any) => ({
                   ...question,
                   id: generateId(),
                 }));
@@ -75,19 +76,19 @@ const createBotMachine = (configuration) => {
           id: 'answer-creator',
           src: answeringMachine,
         },
-        entry: send((context) => ({
+        entry: send((context: any) => ({
           type: 'PREPARE_ANSWER',
           questionDetails: context.currentQuestionDetails,
           configuration,
         }), {
           to: 'answer-creator',
         }),
-        on: {
+        on: <any>{
           TOGGLE: 'idle',
           REPLY: {
             target: 'waitingQuestion',
             actions: assign({
-              messages: (context, event) => [
+              messages: (context: any | undefined, event: any) => [
                 ...context.messages,
                 {
                   type: 'bot',
@@ -96,7 +97,7 @@ const createBotMachine = (configuration) => {
                   widgetData: event.payload.widgetData,
                 },
               ],
-              currentQuestions: (context, event) => event.payload.nextQuestions,
+              currentQuestions: (context, event: any) => event.payload.nextQuestions,
             }),
           },
         },

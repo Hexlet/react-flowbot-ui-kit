@@ -2,11 +2,12 @@ import React, { useContext } from 'react';
 import { useActor } from '@xstate/react';
 import { Button } from 'react-bootstrap';
 
-import GlobalStateContext from '../context';
+import GlobalStateContext from '../context/index';
+import {IState} from "../intefaces/IMessages";
 
-const BotToggler = () => {
-  const globalServices = useContext(GlobalStateContext);
-  const [state, send] = useActor(globalServices.botService);
+const BotToggler = (): JSX.Element => {
+  const globalServices: any = useContext(GlobalStateContext);
+  const [state, send]: IState | any = useActor(globalServices.botService);
 
   return (
     <Button className="position-absolute flowbot-toggler" onClick={() => send('TOGGLE')}>

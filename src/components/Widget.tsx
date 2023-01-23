@@ -1,11 +1,14 @@
-import React, { useContext } from 'react';
+import React, {FC, useContext} from 'react';
 import { Row, Col, Card } from 'react-bootstrap';
-import PropTypes from 'prop-types';
+// @ts-ignore
+import GlobalStateContext from '../context/index.ts';
 
-import GlobalStateContext from '../context';
+interface IWidget {
+  name: string
+}
 
-const Widget = ({ name }) => {
-  const { getWidget } = useContext(GlobalStateContext);
+const Widget = ({ name }: IWidget): JSX.Element => {
+  const { getWidget }: any = useContext(GlobalStateContext);
   const Component = getWidget(name);
 
   return (
@@ -19,10 +22,6 @@ const Widget = ({ name }) => {
       </Col>
     </Row>
   );
-};
-
-Widget.propTypes = {
-  name: PropTypes.string.isRequired,
 };
 
 export default Widget;

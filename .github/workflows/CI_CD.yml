@@ -2,12 +2,14 @@ name: Build, Test and Deploy
 
 on:
   push:
-    branches: [ main ]
+    branches: [ fix-deploy ]
   pull_request:
     branches: [ main ]
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build-test-and-deploy:
@@ -16,7 +18,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [18.x]
 
     steps:
       - name: Checkout 🛎️
@@ -37,7 +39,11 @@ jobs:
       - name: Build
         run: make build
 
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: upload artifact
+        uses: actions/upload-pages-artifact@v1
         with:
-          folder: build # The folder the action should deploy.
+          path: ./build
+
+      - name: deploy to github pages
+        id: deployment
+        uses: actions/deploy-pages@v1

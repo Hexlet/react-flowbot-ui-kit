@@ -1,11 +1,17 @@
 import React from 'react';
 import { useInterpret } from '@xstate/react';
-import PropTypes from 'prop-types';
 
-import GlobalStateContext from '../context';
+import GlobalStateContext from '../context/index';
 import BotBox from './BotBox';
 
-const App = ({ botMachine, options }) => {
+interface IAppProps {
+  botMachine: any,
+  options: {
+    getWidget: () => any
+  }
+}
+
+const App = ({ botMachine, options }: IAppProps): JSX.Element => {
   const botService = useInterpret(botMachine);
   const { getWidget } = options;
 
@@ -14,13 +20,6 @@ const App = ({ botMachine, options }) => {
       <BotBox />
     </GlobalStateContext.Provider>
   );
-};
-
-App.propTypes = {
-  botMachine: PropTypes.object, // eslint-disable-line
-  options: PropTypes.shape({
-    getWidget: PropTypes.func,
-  }),
 };
 
 App.defaultProps = {

@@ -5,17 +5,17 @@ const GeneratePackageJsonPlugin = require('generate-package-json-webpack-plugin'
 
 module.exports = {
   mode: 'production',
-  entry: ['./src/init.jsx', './src/styles/style.scss'],
+  entry: ['./src/init.tsx', './src/styles/style.scss'],
   target: [
     'web',
     'es2020',
   ],
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.ts', '.tsx'],
   },
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'index.js',
+    filename: 'index.ts',
     library: {
       type: 'module',
     },
@@ -29,7 +29,7 @@ module.exports = {
     new GeneratePackageJsonPlugin({
       name: 'react-flowbot-ui-kit',
       version: '0.1.0',
-      main: './index.js',
+      main: './index.ts',
       engines: {
         node: '>= 14',
       },
@@ -38,11 +38,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        use: 'babel-loader',
-      },
-      {
         test: /\.s[ac]ss$/i,
         use: [
           { loader: MiniCssExtractPlugin.loader },
@@ -50,6 +45,11 @@ module.exports = {
           { loader: 'postcss-loader' },
           { loader: 'sass-loader' },
         ],
+      },
+      {
+        test: /\.(ts|tsx)?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
       },
     ],
   },

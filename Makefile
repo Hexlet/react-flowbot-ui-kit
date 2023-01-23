@@ -7,7 +7,7 @@ build:
 	npm run build
 
 start:
-	npx webpack serve
+	NODE_OPTIONS=--openssl-legacy-provider npx webpack serve
 
 lint:
 	npx eslint . --ext js,jsx

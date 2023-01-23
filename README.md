@@ -14,11 +14,11 @@ https://github.com/FredrikOseberg/react-chatbot-kit
 
 First of all you need to make your own question`s roadmap dependencies.
 
-Create a `config.js` file.
+Create a `config.ts` file.
 
-See example of `config.js` in the `examples` directory.
+See example of `config.ts` in the `examples` directory.
 
-`config.js` file has four fields:
+`config.ts` file has four fields:
 
 1) `initMessages`, an array of messages that users will see when launching a chatbot.
 2) `initQuestions`. Here are stored initial roadmap questions for users. The array consists of question names.
@@ -40,7 +40,7 @@ Create your custom widget component. See examples in the `examples/widgets` dire
 
 Create object `widgets`, import and add all your widgets. 
 
-Create a `getWidget` function that has a `name` param  and returns a component from `widgets` object, consider an example from the `examples/widgets/index.js`.
+Create a `getWidget` function that has a `name` param  and returns a component from `widgets` object, consider an example from the `examples/widgets/index.ts`.
 
 ### Now check if it`s working
 
