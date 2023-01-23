@@ -2,7 +2,7 @@ name: Build, Test and Deploy
 
 on:
   push:
-    branches: [ main ]
+    branches: [ fix-deploy ]
   pull_request:
     branches: [ main ]
 
@@ -36,8 +36,3 @@ jobs:
 
       - name: Build
         run: make build
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: build # The folder the action should deploy.
