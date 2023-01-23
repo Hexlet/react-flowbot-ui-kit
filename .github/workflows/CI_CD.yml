@@ -2,7 +2,7 @@ name: Build, Test and Deploy
 
 on:
   push:
-    branches: [ fix-deploy ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 
