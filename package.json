@@ -1,6 +1,6 @@
 {
-  "name": "react-flowbot-ui-kit",
-  "version": "0.1.0",
+  "name": "@hexlet/react-flowbot-ui-kit",
+  "version": "1.0.0",
   "description": "",
   "private": true,
   "scripts": {

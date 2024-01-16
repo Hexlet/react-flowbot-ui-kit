@@ -15,4 +15,7 @@ lint:
 test:
 	npm test
 
+publish:
+	npm publish --access public
+
 .PHONY: build
