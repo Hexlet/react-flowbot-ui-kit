@@ -1,6 +1,6 @@
-// import App from "./App";
-import App from '@dzencot/chatbot-v2';
+import App from './App';
+import { Step } from './interfaces/Step';
 
-export default () => {
-  return <App />;
+export default (steps: Step[]) => {
+  return <App steps={[...steps]}/>;
 };
