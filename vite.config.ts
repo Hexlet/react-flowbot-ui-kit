@@ -13,5 +13,14 @@ export default defineConfig({
       // the proper extensions will be added
       fileName: 'my-lib',
     },
+    rollupOptions: {
+      external: ['react', 'react-dom'],
+      output: {
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM',
+        },
+      },
+    },
   },
 })
