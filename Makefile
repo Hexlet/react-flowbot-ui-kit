@@ -12,3 +12,6 @@ lint:
 
 test:
 	echo no tests
+
+publish:
+	npm publish --access=public
