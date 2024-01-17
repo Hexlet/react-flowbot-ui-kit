@@ -8,7 +8,7 @@ export default defineConfig({
   build: {
     lib: {
       // Could also be a dictionary or array of multiple entry points
-      entry: resolve(__dirname, 'src/App.tsx'),
+      entry: resolve(__dirname, 'src/Components/App.tsx'),
       name: 'MyLib',
       // the proper extensions will be added
       fileName: 'my-lib',
