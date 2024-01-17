@@ -27,7 +27,7 @@ const App = ({ steps }: appProps): JSX.Element => {
 
   return (
     <>
-      <div>
+      <div className='container'>
         {messages.map((contents, index) => (
           <ChatMessage key={index} contents={[contents]} />
         ))}
@@ -35,6 +35,7 @@ const App = ({ steps }: appProps): JSX.Element => {
           <button
             key={index}
             onClick={() => handleClick(btn.nextStepId)}
+            className='btn btn-primary'
           >
             {btn.text}
           </button>
