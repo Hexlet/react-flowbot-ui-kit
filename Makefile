@@ -9,3 +9,6 @@ build:
 
 lint:
 	npm run lint
+
+test:
+	echo no tests
