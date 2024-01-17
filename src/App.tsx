@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Step } from './interfaces/Step';
+import ChatMessage from './ChatMessage';
 
 interface appProps {
   steps: Step[]
@@ -12,14 +13,14 @@ const App = ({ steps }: appProps): JSX.Element => {
   });
 
   const [currState, setCurrState] = useState(initStep);
-  const [messages, setMessages] = useState([initStep?.message])
+  const [messages, setMessages] = useState<string[][]>(initStep?.messages ? [initStep.messages] : [])
 
 
   const handleClick = (nextStep: string) => {
     const res = steps.find((step) => step.id === nextStep);
 
     if (res) {
-      setMessages([...messages, res.message]);
+      setMessages([...messages, res.messages]);
       setCurrState(res);
     }
   }
@@ -27,10 +28,9 @@ const App = ({ steps }: appProps): JSX.Element => {
   return (
     <>
       <div>
-        {messages.map((text, index) => (
-          <p key={index}>{text}</p>
+        {messages.map((contents, index) => (
+          <ChatMessage key={index} contents={[contents]} />
         ))}
-        {/* {console.log(messages)} */}
         {currState && currState.buttons.map((btn, index) => (
           <button
             key={index}

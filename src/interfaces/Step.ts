@@ -6,6 +6,6 @@ interface Button {
 
 export interface Step {
   id: string,
-  message: string,
+  messages: string[],
   buttons: Button[]
 }
