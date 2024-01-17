@@ -1,0 +1,17 @@
+// Import all of Bootstrap's CSS
+@import "bootstrap/scss/bootstrap";
+
+.modal-bottom-right {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  left: auto;
+  top: auto;
+  transform: none;
+}
+
+.modal-fixed-size {
+  max-width: 600px; /* Любая фиксированная ширина */
+  margin: 1.75rem auto;
+}
+

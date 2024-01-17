@@ -1,16 +1,7 @@
-import React from 'react';
-// @ts-ignore
-import createBotMachine from './machine/flowbotMachine';
-import App from './components/App';
-import { IConfig } from './intefaces/IConfig';
+import App from './Components/App';
 
-const defaultOptions = {
-  getWidget: () => null,
+const init = (steps) => {
+  return <App steps={[...steps]}/>;
 };
 
-export default (configuration: IConfig, userDefinedOptions = {}): JSX.Element => {
-  const options = { ...defaultOptions, ...userDefinedOptions };
-  const botMachine = createBotMachine(configuration);
-
-  return <App botMachine={botMachine} options={options} />;
-};
+export default init;
