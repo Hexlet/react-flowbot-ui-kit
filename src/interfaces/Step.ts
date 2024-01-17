@@ -1,5 +1,5 @@
 interface Button {
-  message: string,
+  text: string,
   nextStepId: string,
   type: 'button' | 'select',
 }

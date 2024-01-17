@@ -27,15 +27,16 @@ const App = ({ steps }: appProps): JSX.Element => {
   return (
     <>
       <div>
-        {messages.map((message, index) => (
-          <p key={index}>{message}</p>
+        {messages.map((text, index) => (
+          <p key={index}>{text}</p>
         ))}
+        {/* {console.log(messages)} */}
         {currState && currState.buttons.map((btn, index) => (
           <button
             key={index}
             onClick={() => handleClick(btn.nextStepId)}
           >
-            {btn.message}
+            {btn.text}
           </button>
         ))}
 

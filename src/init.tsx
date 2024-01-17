@@ -1,6 +1,8 @@
 import App from './App';
 import { Step } from './interfaces/Step';
 
-export default (steps: Step[]) => {
+const init = (steps: Step[]) => {
   return <App steps={[...steps]}/>;
 };
+
+export default init;
