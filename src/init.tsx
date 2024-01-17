@@ -1,4 +1,4 @@
-import App from './App';
+import App from './Components/App';
 import { Step } from './interfaces/Step';
 import './scss/styles.scss';
 
