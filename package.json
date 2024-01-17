@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "main": "src/init.tsx",
+  "main": "dist/my-lib.js",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -11,7 +11,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@dzencot/chatbot-v2": "^0.0.1",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.2",
     "react": "^18.2.0",
