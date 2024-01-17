@@ -4,12 +4,12 @@
   "version": "0.0.1",
   "type": "module",
   "files": ["dist"],
-  "main": "./dist/my-lib.umd.cjs",
-  "module": "./dist/my-lib.js",
+  "main": "./dist/hexlet-flowbot.umd.cjs",
+  "module": "./dist/hexlet-flowbot.js",
   "exports": {
     ".": {
-      "import": "./dist/my-lib.js",
-      "require": "./dist/my-lib.umd.cjs"
+      "import": "./dist/hexlet-flowbot.js",
+      "require": "./dist/hexlet-flowbot.umd.cjs"
     },
     "./styles": {
       "import": "./dist/style.css"
