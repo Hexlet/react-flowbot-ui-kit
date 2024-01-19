@@ -1,32 +1,27 @@
-type ChatContent = string[];
+import tota from '../assets/tota.png';
+import { Message } from '../interfaces/ChatMessage';
 
-interface ChatMessageProps {
-  contents: ChatContent[];
-}
+const ChatMessage = ({ message }: Message) => {
 
-const ChatMessage = ({ contents }: ChatMessageProps) => {
+  if (message.type === 'query') {
+
+    return (
+      <div className='message'>
+        <img className="avatar me-auto" src={tota} alt='tota'/>
+        <div className='message-body'>
+          {message.contents?.map((item, index) => (<p className='mb-0' key={index}>{item}</p>))}
+        </div> 
+      </div>
+    );
+  }
+      
   return (
-    <div>      
-      {contents.map((items, index) => (
-        <div key={index} className="d-flex">
-          <div className="avatar">
-            Здесь аватарка бота
-          </div>
-          <div className="d-flex flex-column">
-            {items.map((text, innerIndex) => (
-              <div
-                key={innerIndex}
-                className="rounded p-3 shadow mb-3"
-              >
-                {text}
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}   
+    <div className='message message-right'>
+      <div className='message-body text-white bg-primary'>
+          {message.contents?.map((item, index) => (<p className='mb-0' key={index}>{item}</p>))}
+        </div> 
     </div>
-  )
-}
+  );
+};
 
-
-export default ChatMessage
+export default ChatMessage;

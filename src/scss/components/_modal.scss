@@ -1,0 +1,13 @@
+.modal-bottom-right {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  left: auto;
+  top: auto;
+  transform: none;
+}
+
+.modal-fixed-size {
+  max-width: 400px; /* Любая фиксированная ширина */
+  margin: 1.75rem auto;
+}

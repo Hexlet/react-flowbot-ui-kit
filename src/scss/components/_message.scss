@@ -1,0 +1,17 @@
+.message {
+  display: flex; 
+  align-items: flex-end;
+  margin-bottom: 1rem;
+
+  &.message-right {
+    margin-left: auto;
+  }
+}
+
+.message-body {
+  color: #6c757d;
+  background-color: #fbfbfb;
+  border-radius: 1rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  padding: 1.5rem;
+}

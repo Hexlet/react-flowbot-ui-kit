@@ -33,7 +33,7 @@ const WidgetModal = ({ steps }: appProps) => {
         show={show}
         onHide={() => setShow(false)}
         // dialogClassName='modal-90w'
-        dialogClassName='modal-bottom-right modal-fixed-size'
+        dialogClassName='modal-bottom-right modal-fixed-size mb-0 mt-0'
         aria-labelledby='example-custom-modal-styling-title'
         backdrop='static'
       >

@@ -1,6 +1,7 @@
 import App from './Components/App';
+import { Step } from './interfaces/Step';
 
-const init = (steps) => {
+const init = (steps: Step[]) => {
   return <App steps={[...steps]}/>;
 };
 
