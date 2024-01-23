@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import { Button, appProps } from '../interfaces/Step';
+import { Button, AppProps } from '../interfaces/Step';
 import ChatMessage from './ChatMessage';
 
-const Chat = ({ steps }: appProps) => {
+const Chat = ({ steps }: AppProps) => {
+
   const initStep = steps.find((step) => {
     return step.id === 'welcome';
   });
+
   const startMessages = { type: 'query', contents: initStep?.messages };
 
   const [currState, setCurrState] = useState(initStep);

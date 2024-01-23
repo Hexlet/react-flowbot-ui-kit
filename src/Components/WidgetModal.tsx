@@ -2,13 +2,9 @@ import { useState, useEffect, useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Chat from './Chat';
-import { Step } from '../interfaces/Step';
+import { AppProps } from '../interfaces/Step';
 
-interface appProps {
-  steps: Step[]
-}
-
-const WidgetModal = ({ steps }: appProps) => {
+const WidgetModal = ({ steps }: AppProps) => {
   const [show, setShow] = useState(false);
   const chatContainerRef = useRef<HTMLDivElement>(null);
   

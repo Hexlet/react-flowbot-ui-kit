@@ -4,7 +4,6 @@ import { Message } from '../interfaces/ChatMessage';
 const ChatMessage = ({ message }: Message) => {
 
   if (message.type === 'query') {
-
     return (
       <div className='message'>
         <img className="avatar me-auto" src={tota} alt='tota'/>

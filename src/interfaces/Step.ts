@@ -10,7 +10,7 @@ export interface Step {
   buttons: Button[]
 }
 
-export interface appProps {
+export interface AppProps {
   steps: Step[]
 }
 
