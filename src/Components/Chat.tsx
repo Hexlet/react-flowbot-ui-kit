@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Button, AppProps } from '../interfaces/Step';
 import ChatMessage from './ChatMessage';
 
 const Chat = ({ steps }: AppProps) => {
+
+  const messagesEndRef = useRef<HTMLDivElement>(null)
 
   const initStep = steps.find((step) => {
     return step.id === 'welcome';
@@ -12,6 +14,12 @@ const Chat = ({ steps }: AppProps) => {
 
   const [currState, setCurrState] = useState(initStep);
   const [messages, setMessages] = useState([startMessages]);
+
+  useEffect(() => {
+    if (messagesEndRef.current) {
+    messagesEndRef.current.scrollIntoView({ behavior: "smooth" })
+    }
+  }, [currState]);
 
   const handleClick = (btn: Button) => {
     const nextStep = steps.find((step) => step.id === btn.nextStepId);
@@ -49,6 +57,7 @@ const Chat = ({ steps }: AppProps) => {
             </button>
           </div>
         ))}
+        <div ref={messagesEndRef} />
         </div>
 
       </div>
