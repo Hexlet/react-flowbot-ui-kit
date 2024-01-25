@@ -1,4 +1,4 @@
-interface Button {
+export interface Button {
   text: string,
   nextStepId: string,
   type: 'button' | 'select',
@@ -9,3 +9,8 @@ export interface Step {
   messages: string[],
   buttons: Button[]
 }
+
+export interface AppProps {
+  steps: Step[]
+}
+

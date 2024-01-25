@@ -1,13 +1,8 @@
-import { Step } from '../interfaces/Step';
+import { AppProps } from '../interfaces/Step';
 import WidgetModal from './WidgetModal';
 
-interface appProps {
-  steps: Step[]
-}
 
-const App = ({ steps }: appProps): JSX.Element => {
-
-
+const App = ({ steps }: AppProps): JSX.Element => {
   return (
     <>
       <WidgetModal steps={steps} />

@@ -109,7 +109,8 @@ const steps = [
     buttons: [
       {
         text: 'Расскажи подробнее',
-        nextStepId: 'to be defined',
+        // nextStepId: 'to be defined',
+        nextStepId: 'welcome',
         type: "button",
         // еще один вариант, когда появляется поле вводе, 
         // Оставьте номер телефона и почту. Перезвоним, расскажем подробнее и поможем выбрать подходящий вариант

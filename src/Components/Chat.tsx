@@ -1,47 +1,63 @@
-import { useState } from 'react';
-import { Step } from '../interfaces/Step';
+import { useEffect, useRef, useState } from 'react';
+import { Button, AppProps } from '../interfaces/Step';
 import ChatMessage from './ChatMessage';
 
-interface appProps {
-  steps: Step[]
-}
+const Chat = ({ steps }: AppProps) => {
 
+  const messagesEndRef = useRef<HTMLDivElement>(null)
 
-const Chat = ({ steps }: appProps) => {
-  const initStep: Step | undefined = steps.find((step) => {
-    return step.id === 'welcome'
+  const initStep = steps.find((step) => {
+    return step.id === 'welcome';
   });
 
+  const startMessages = { type: 'query', contents: initStep?.messages };
+
   const [currState, setCurrState] = useState(initStep);
-  const [messages, setMessages] = useState<string[][]>(initStep?.messages ? [initStep.messages] : []);
+  const [messages, setMessages] = useState([startMessages]);
 
-  const handleClick = (nextStep: string) => {
-    const res = steps.find((step) => step.id === nextStep);
+  useEffect(() => {
+    if (messagesEndRef.current) {
+    messagesEndRef.current.scrollIntoView({ behavior: "smooth" })
+    }
+  }, [currState]);
 
-    if (res) {
-      setMessages([...messages, res.messages]);
-      setCurrState(res);
+  const handleClick = (btn: Button) => {
+    const nextStep = steps.find((step) => step.id === btn.nextStepId);
+    const nextMessages = { type: 'query', contents: nextStep?.messages };
+    const responseMessage = { type: 'response', contents: [btn.text] };
+
+    if (nextMessages) {
+      const update = messages.concat(responseMessage, nextMessages);
+      setMessages(update);
+    }
+
+    if (nextStep) {
+      setCurrState(nextStep);
     }
   }
 
   return (
     <>
-      <div className='container'>
-        {messages.map((contents, index) => (
-          <ChatMessage key={index} contents={[contents]} />
-        ))}
-        <div className='d-flex flex-column align-items-center'>
+      <div className='d-flex flex-column'>
+
+        {messages && messages.map((message, index) => {
+          return (
+            <ChatMessage key={index} message={message } />
+          )
+        })}
+
+        <div className='d-flex flex-column align-items-center mt-5'>
           {currState && currState.buttons.map((btn, index) => (
-          <div>
+          <div key={index}>
             <button
-              key={index}
-              onClick={() => handleClick(btn.nextStepId)}
-              className='btn btn-primary mb-2'
+              onClick={() => handleClick(btn)}
+              className='btn btn-outline-primary mb-2'
             >
               {btn.text}
             </button>
           </div>
         ))}
+        <div ref={messagesEndRef} />
         </div>
 
       </div>
