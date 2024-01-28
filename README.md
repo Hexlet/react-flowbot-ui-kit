@@ -6,11 +6,11 @@
     ```bash
     npm i @hexlet/chatbot-v2
     ```
-1. Импортировать стили:
+2. Импортировать стили:
     ```javascript
     import '@hexlet/chatbot-v2/styles'
     ```
-1. Импортировать и запустить бота:
+3. Импортировать и запустить бота:
     ```javascript
     import app from 'chatbot-v2';
 
