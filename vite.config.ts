@@ -4,6 +4,7 @@ import { resolve } from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/react-flowbot-ui-kit/',
   plugins: [react()],
   build: {
     lib: {
