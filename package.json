@@ -1,6 +1,6 @@
 {
   "name": "@hexlet/chatbot-v2",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "type": "module",
   "homepage": "https://hexlet.github.io/react-flowbot-ui-kit/",
   "files": [
