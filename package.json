@@ -1,10 +1,11 @@
 {
   "name": "@hexlet/chatbot-v2",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "type": "module",
   "homepage": "https://hexlet.github.io/react-flowbot-ui-kit/",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "main": "./dist/hexlet-flowbot.umd.cjs",
   "module": "./dist/hexlet-flowbot.js",
@@ -19,10 +20,10 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build-app": "tsc && vite build --config vite.config.app.ts",
+    "build-lib": "tsc && vite build --config vite.config.lib.ts",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "dependencies": {

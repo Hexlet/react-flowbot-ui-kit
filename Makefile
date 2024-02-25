@@ -4,8 +4,8 @@ install:
 start:
 	npm run dev
 
-build:
-	npm run build
+build-lib:
+	npm run build-lib
 
 lint:
 	npm run lint
