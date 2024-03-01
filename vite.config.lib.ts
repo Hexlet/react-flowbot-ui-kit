@@ -2,12 +2,13 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 import dts from 'vite-plugin-dts';
+import { libInjectCss } from 'vite-plugin-lib-inject-css';
 
 // for publishing as npm package
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), dts()],
+  plugins: [react(), dts(), libInjectCss()],
   build: {
     lib: {
       // Could also be a dictionary or array of multiple entry points
@@ -25,6 +26,6 @@ export default defineConfig({
         },
       },
     },
-    sourcemap: 'inline',
+    // sourcemap: 'inline',
   },
 });
