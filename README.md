@@ -13,16 +13,16 @@
 3. Импортировать и запустить бота:
     ```javascript
     import ReactDOM from 'react-dom/client';
-    import App from '@hexlet/chatbot-v2';
+    import Widget from '@hexlet/chatbot-v2';
     import steps from '@hexlet/chatbot-v2/example-steps';
     import '@hexlet/chatbot-v2/styles';
 
     const container = document.getElementById('root');
     ReactDOM.createRoot(container)
-      .render(App(steps));
+      .render(Widget(steps));
     ```
 
-Функция принимает первым параметром контейнер, в котором нужно отрисовать бота и вторым параметром шаги для работы чат-бота.
+Функция принимает параметром шаги для работы чат-бота.
 
 ## Описание конфигурации шагов
 
