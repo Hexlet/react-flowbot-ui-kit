@@ -46,7 +46,7 @@ const Chat = ({ steps }: AppProps) => {
           )
         })}
 
-        <div className='d-flex flex-column align-items-center mt-5'>
+        <div id="chat" className='d-flex flex-column align-items-center mt-5'>
           {currState && currState.buttons.map((btn, index) => (
           <div key={index}>
             <button
