@@ -22,6 +22,7 @@ const WidgetModal = ({ steps }: AppProps) => {
         onHide={() => setShow(false)}
         dialogClassName='modal-bottom-right modal-fixed-size mb-0 mt-0'
         aria-labelledby='example-custom-modal-styling-title'
+        aria-label='modal'
         backdrop='static'
       >
         <Modal.Header closeButton>
