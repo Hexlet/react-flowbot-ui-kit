@@ -1,3 +1,3 @@
-import app from './app.tsx';
+import app from './app.tsx'
 
-app();
+app()
