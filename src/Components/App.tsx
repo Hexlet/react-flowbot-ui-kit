@@ -3,7 +3,7 @@ import WidgetModal from './WidgetModal';
 import '../scss/styles.scss';
 
 
-const App = ({ steps }: AppProps): JSX.Element => {
+const App = ({ steps }: AppProps): React.JSX.Element => {
   return (
     <>
       <WidgetModal steps={steps} />
